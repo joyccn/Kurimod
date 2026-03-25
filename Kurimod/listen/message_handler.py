@@ -23,6 +23,10 @@ class MessageHandler(pyrogram.handlers.message_handler.MessageHandler):
 
     @should_patch()
     async def check_if_has_matching_listener(self, client: Client, message: Message):
+        cache = getattr(message, "_kurimod_listener_cache", None)
+        if cache is not None:
+            return cache
+
         from_user = message.from_user
         from_user_id = from_user.id if from_user else None
         from_user_username = from_user.username if from_user else None
@@ -52,7 +56,9 @@ class MessageHandler(pyrogram.handlers.message_handler.MessageHandler):
             else:
                 listener_does_match = True
 
-        return listener_does_match, listener
+        result = (listener_does_match, listener)
+        setattr(message, "_kurimod_listener_cache", result)
+        return result
 
     @should_patch()
     async def check(self, client: Client, message: Message):

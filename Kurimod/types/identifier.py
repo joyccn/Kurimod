@@ -1,5 +1,8 @@
 from dataclasses import dataclass, fields
-from typing import Optional, List, Union
+from typing import Optional, List, Union, TypeVar
+
+
+T = TypeVar("T")
 
 
 @dataclass(slots=True)
@@ -10,30 +13,39 @@ class Identifier:
     from_user_id: Optional[Union[Union[int, str], List[Union[int, str]]]] = None
 
     def matches(self, update: "Identifier") -> bool:
-        for field in fields(self):
-            pattern_value = getattr(self, field.name)
-            update_value = getattr(update, field.name)
-
-            if pattern_value is not None:
-                if isinstance(update_value, list):
-                    if isinstance(pattern_value, list):
-                        if not set(update_value).intersection(set(pattern_value)):
-                            return False
-                    elif pattern_value not in update_value:
-                        return False
-                elif isinstance(pattern_value, list):
-                    if update_value not in pattern_value:
-                        return False
-                elif update_value != pattern_value:
-                    return False
+        if self.inline_message_id is not None:
+            if not self._check_match(self.inline_message_id, update.inline_message_id):
+                return False
+        
+        if self.chat_id is not None:
+            if not self._check_match(self.chat_id, update.chat_id):
+                return False
+        
+        if self.message_id is not None:
+            if not self._check_match(self.message_id, update.message_id):
+                return False
+        
+        if self.from_user_id is not None:
+            if not self._check_match(self.from_user_id, update.from_user_id):
+                return False
+                
         return True
 
-    def count_populated(self):
-        non_null_count = 0
+    @staticmethod
+    def _check_match(pattern_value: Union[T, List[T]], update_value: Union[T, List[T]]) -> bool:
+        if isinstance(update_value, list):
+            if isinstance(pattern_value, list):
+                return any(item in pattern_value for item in update_value)
+            return pattern_value in update_value
+        if isinstance(pattern_value, list):
+            return update_value in pattern_value
+        return update_value == pattern_value
 
-        for field in fields(self):
-            if getattr(self, field.name) is not None:
-                non_null_count += 1
-
-        return non_null_count
+    def count_populated(self) -> int:
+        count = 0
+        if self.inline_message_id is not None: count += 1
+        if self.chat_id is not None: count += 1
+        if self.message_id is not None: count += 1
+        if self.from_user_id is not None: count += 1
+        return count
 

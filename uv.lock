@@ -1,25 +1,19 @@
 version = 1
 revision = 3
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 
 [[package]]
 name = "kurigram"
-version = "2.2.17"
+version = "2.2.19"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pyaes" },
     { name = "pysocks" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bd/8a/006d91423d7602a6a28678cac76ec562793a0141f0b21105795e0465393e/kurigram-2.2.17.tar.gz", hash = "sha256:b4aa417d205d9103a0691c7c2ed156c5e7dc5bc9305f13b6234b3f4d37bb8457", size = 547643, upload-time = "2025-12-29T14:58:05.97Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/aa/3c/0c5469b66ea5ad887d7b877b08113726e6d67ef622442c8dd7adbcf9e352/kurigram-2.2.19.tar.gz", hash = "sha256:6d86a870834527e91c6308f8307796a985a437a39e8112e3bc7a649c6d1f7daa", size = 557685, upload-time = "2026-02-20T09:36:08.844Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fe/64/7dbf7c005aeb9f694accf821e964576db09c778972932c4909640b7e622b/kurigram-2.2.17-py3-none-any.whl", hash = "sha256:636dc1c34dd2e9b2785528937a6cca3de28f44678f66fc6d8b152ae9879af859", size = 5435593, upload-time = "2025-12-29T14:58:04.317Z" },
+    { url = "https://files.pythonhosted.org/packages/8a/00/7b4354395f7adcbf862af968a989f45f690542c4f0b458dc4cc7c10d2a40/kurigram-2.2.19-py3-none-any.whl", hash = "sha256:fa255cfc1aaa4b9be9ed3120af612a460a3e1c78d872b6090717ea77ca31dbf8", size = 5494166, upload-time = "2026-02-20T09:36:07.095Z" },
 ]
-
-[[package]]
-name = "pyaes"
-version = "1.6.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/44/66/2c17bae31c906613795711fc78045c285048168919ace2220daa372c7d72/pyaes-1.6.1.tar.gz", hash = "sha256:02c1b1405c38d3c370b085fb952dd8bea3fadcee6411ad99f312cc129c536d8f", size = 28536, upload-time = "2017-09-20T21:17:54.23Z" }
 
 [[package]]
 name = "kurimod"
@@ -30,7 +24,13 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "kurigram" }]
+requires-dist = [{ name = "kurigram", specifier = ">=2.2.19" }]
+
+[[package]]
+name = "pyaes"
+version = "1.6.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/44/66/2c17bae31c906613795711fc78045c285048168919ace2220daa372c7d72/pyaes-1.6.1.tar.gz", hash = "sha256:02c1b1405c38d3c370b085fb952dd8bea3fadcee6411ad99f312cc129c536d8f", size = 28536, upload-time = "2017-09-20T21:17:54.23Z" }
 
 [[package]]
 name = "pysocks"

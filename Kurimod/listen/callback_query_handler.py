@@ -25,6 +25,10 @@ class CallbackQueryHandler(
 
     @should_patch()
     def compose_data_identifier(self, query: CallbackQuery):
+        cache = getattr(query, "_kurimod_data_cache", None)
+        if cache is not None:
+            return cache
+
         from_user = query.from_user
         from_user_id = from_user.id if from_user else None
         from_user_username = from_user.username if from_user else None
@@ -40,17 +44,23 @@ class CallbackQueryHandler(
             if query.message.chat:
                 chat_id = [query.message.chat.id, query.message.chat.username]
 
-        return Identifier(
+        result = Identifier(
             message_id=message_id,
             chat_id=chat_id,
             from_user_id=[from_user_id, from_user_username],
             inline_message_id=query.inline_message_id,
         )
+        setattr(query, "_kurimod_data_cache", result)
+        return result
 
     @should_patch()
     async def check_if_has_matching_listener(
         self, client: Client, query: CallbackQuery
     ) -> Tuple[bool, Listener]:
+        cache = getattr(query, "_kurimod_listener_cache", None)
+        if cache is not None:
+            return cache
+
         data = self.compose_data_identifier(query)
 
         listener = client.get_listener_matching_with_data(
@@ -72,7 +82,9 @@ class CallbackQueryHandler(
             else:
                 listener_does_match = True
 
-        return listener_does_match, listener
+        result = (listener_does_match, listener)
+        setattr(query, "_kurimod_listener_cache", result)
+        return result
 
     @should_patch()
     async def check(self, client: Client, query: CallbackQuery):
@@ -91,9 +103,8 @@ class CallbackQueryHandler(
         else:
             handler_does_match = True
 
-        data = self.compose_data_identifier(query)
-
         if config.unallowed_click_alert:
+            data = self.compose_data_identifier(query)
             permissive_identifier = Identifier(
                 chat_id=data.chat_id,
                 message_id=data.message_id,
@@ -101,11 +112,9 @@ class CallbackQueryHandler(
                 from_user_id=None,
             )
 
-            matches = permissive_identifier.matches(data)
-
             if (
                 listener
-                and (matches and not listener_does_match)
+                and (permissive_identifier.matches(data) and not listener_does_match)
                 and listener.unallowed_click_alert
             ):
                 alert = (
