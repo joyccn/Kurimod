@@ -1,7 +1,6 @@
 import {on} from "../../utils/event";
 import {useState} from "react";
 import clsx from "clsx";
-import { CopyBlock, dracula } from 'react-code-blocks';
 
 export const KurimodCodeBox = () => {
     const [step, setStep] = useState(0);
@@ -39,24 +38,24 @@ export const KurimodCodeBox = () => {
     }
 
     return (
-       <div className="mockup-code bg-base-200 h-96 w-[80vw] md:w-[800px] overflow-auto flex flex-col items-start scrollbar-thin scrollbar-thumb-neutral scrollbar-rounded-lg text-base">
+       <div className="bg-[#f4f3ee] py-8 rounded-[2.5rem] border border-[#b1ada1]/30 dark:bg-[#121212] h-[400px] w-[80vw] md:w-[800px] overflow-auto flex flex-col items-start scrollbar-thin scrollbar-thumb-[#b1ada1]/50 shadow-sm hover:shadow-lg transition-shadow text-[13px] font-mono leading-loose relative m-2">
            {codeLines.map((line, index) => {
                 const lineNumber = index + 1;
                 const stepLine = translateStepToLine(step);
                 const highlightLine = stepLine === lineNumber.toString();
 
-                const highlight = "bg-primary text-primary-content";
-                const fade = "bg-transparent text-base-content opacity-40";
-                const normal = "bg-transparent text-base-content";
+                const highlight = "bg-[#c15f3c]/10 text-[#c15f3c] dark:text-[#d78f76] px-4 py-0 border-l-[3px] border-[#c15f3c] w-full font-bold";
+                const fade = "text-[#080808]/40 dark:text-white/30 px-4 py-0 border-l-[3px] border-transparent w-full";
+                const normal = "text-[#080808] dark:text-[#e5e5e5] px-4 py-0 border-l-[3px] border-transparent w-full";
 
-                const className = "flex gap-2 rounded-none p-0 overflow-visible";
                 const extraClassName = stepLine? (highlightLine? highlight: fade): normal;
                 return (
-                    <pre data-prefix={lineNumber} className={clsx(className, extraClassName)} key={index}><code>{line}</code></pre>
+                    <div className={clsx("flex whitespace-pre transition-all duration-300 w-full", extraClassName)} key={index}>
+                        <span className="w-8 inline-block text-right opacity-30 select-none mr-6 text-[10px] pb-1">{lineNumber}</span>
+                        <code className="bg-transparent text-inherit p-0 font-mono tracking-tight border-none shadow-none">{line}</code>
+                    </div>
                 )
            })}
        </div>
     )
-
-
 }

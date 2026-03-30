@@ -60,20 +60,20 @@ const ChatMessage = ({ message, outgoing }) => {
     }
     if (!outgoing) {
         return (
-            <div className="chat chat-start">
+            <div className="chat chat-start mb-2">
                 <div className="chat-image avatar">
-                    <div className="w-10 rounded-full">
-                        <div className={"bg-orange-300 h-full w-full font-bold text-black justify-center flex items-center"}>BOT</div>
+                    <div className="w-8 rounded-full ring-1 ring-[#c15f3c]/20 ring-offset-1 dark:ring-offset-[#121212]">
+                        <div className={"bg-gradient-to-br from-[#c15f3c] to-[#a35033] h-full w-full font-bold text-white justify-center flex items-center text-[10px]"}>BOT</div>
                     </div>
                 </div>
-                <div className="chat-bubble text-[var(--ifm-font-color-base-inverse)] bg-[var(--ifm-color-primary-light)]">{innerBubble}</div>
+                <div className="chat-bubble bg-[#f4f3ee] dark:bg-[#1f1f1f] text-[#080808] dark:text-white rounded-[1.25rem] rounded-tl-sm shadow-sm text-sm">{innerBubble}</div>
             </div>
         )
     }
 
     return (
-        <div className="chat chat-end">
-            <div className="chat-bubble bg-base-300/70 text-base-content">{innerBubble}</div>
+        <div className="chat chat-end mb-2">
+            <div className="chat-bubble bg-[#c15f3c] text-white rounded-[1.25rem] rounded-tr-sm shadow-sm text-sm">{innerBubble}</div>
         </div>
     )
 }
@@ -98,23 +98,22 @@ export const ChatSimulator = ({ updateCallback }) => {
     }, []);
 
     return (
-        <div className="flex flex-col h-96 w-[80vw] md:w-96 bg-base-100 border-2 dark:border-base-300 rounded-box shadow-xl overflow-hidden m-2 text-base">
-            <div className="flex flex-row justify-center items-center h-12 w-full bg-base-200 select-none">
-                <div className="text-lg font-medium text-base-content">Chat Simulator</div>
+        <div className="flex flex-col h-[400px] w-[80vw] md:w-96 bg-white dark:bg-[#121212] border border-[#b1ada1]/30 rounded-[2.5rem] shadow-sm hover:shadow-lg transition-shadow overflow-hidden m-2 text-base relative">
+            <div className="flex flex-row justify-center items-center h-14 w-full bg-[#f4f3ee]/50 dark:bg-[#1f1f1f]/50 border-b border-[#b1ada1]/10 backdrop-blur-md select-none sticky top-0 z-10">
+                <div className="text-[11px] tracking-widest font-bold text-[#b1ada1] uppercase">Chat Simulator</div>
             </div>
-            <div className="flex flex-grow h-full max-h-full w-full bg-base-100 overflow-auto scrollbar-thin scrollbar-thumb-neutral">
-                <div className="flex flex-col-reverse flex-grow h-full max-h-full w-full bg-base-100 px-2 overflow-auto scrollbar-thin">
+            <div className="flex flex-grow h-full max-h-full w-full bg-transparent overflow-auto scrollbar-thin scrollbar-thumb-[#b1ada1]/50">
+                <div className="flex flex-col-reverse flex-grow h-full max-h-full w-full bg-transparent p-4 overflow-auto scrollbar-thin">
                     {messages.map((message, index) => {
-                        console.log(message)
                         return (
                             <ChatMessage key={index} message={message.value} outgoing={message.outgoing} />
                         )
                     })}
                 </div>
             </div>
-            <form onSubmit={onSubmit} className="flex flex-row justify-center items-center h-12 w-full bg-base-200 gap-2 p-2">
-                <input className="input input-sm input-bordered w-full max-w-xs flex-grow" ref={inputRef} type="text" placeholder="Type a message" />
-                <button type="submit" className="btn btn-sm glass">Send</button>
+            <form onSubmit={onSubmit} className="flex flex-row justify-center items-center h-[72px] w-full bg-transparent border-t border-[#b1ada1]/10 gap-2 px-4 pb-2">
+                <input className="input h-10 w-full max-w-xs flex-grow bg-[#f4f3ee] dark:bg-[#1f1f1f] text-[#080808] dark:text-white border-transparent rounded-[1rem] px-5 focus:outline-none focus:ring-2 focus:ring-[#c15f3c]/30 text-sm transition-all shadow-inner" ref={inputRef} type="text" placeholder="Message..." />
+                <button type="submit" className="h-10 px-6 bg-[#c15f3c] text-white font-medium rounded-[1rem] hover:bg-[#a35033] transition-colors text-sm shadow-sm hover:shadow transition-all">Send</button>
             </form>
         </div>
 
