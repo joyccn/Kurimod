@@ -1,8 +1,8 @@
 ---
-title: kurimod.helpers
+title: Kurimod.helpers
 ---
 
-### *function* `kurimod.array_chunk(input_array, size)`
+### *function* `Kurimod.array_chunk(input_array, size)`
 
 Split an array into chunks.
 
@@ -17,7 +17,7 @@ Split an array into chunks.
 
 A list of chunks.
 
-### *function* `kurimod.bki(keyboard)`
+### *function* `Kurimod.bki(keyboard)`
 
 Deserialize an InlineKeyboardMarkup to a list of lists of buttons.
 
@@ -31,7 +31,7 @@ Deserialize an InlineKeyboardMarkup to a list of lists of buttons.
 
 A list of lists of buttons.
 
-### *function* `kurimod.btn(text, value, type='callback_data')`
+### *function* `Kurimod.btn(text, value, type='callback_data')`
 
 Create an InlineKeyboardButton.
 
@@ -47,7 +47,7 @@ Create an InlineKeyboardButton.
 
 An InlineKeyboardButton.
 
-### *function* `kurimod.force_reply(selective=True)`
+### *function* `Kurimod.force_reply(selective=True)`
 
 Create a ForceReply.
 
@@ -61,7 +61,7 @@ Create a ForceReply.
 
 A ForceReply.
 
-### *function* `kurimod.ikb(rows=None)`
+### *function* `Kurimod.ikb(rows=None)`
 
 Create an InlineKeyboardMarkup from a list of lists of buttons.
 
@@ -75,7 +75,7 @@ Create an InlineKeyboardMarkup from a list of lists of buttons.
 
 An InlineKeyboardMarkup.
 
-### *function* `kurimod.kb(rows=None, **kwargs)`
+### *function* `Kurimod.kb(rows=None, **kwargs)`
 
 Create a ReplyKeyboardMarkup from a list of lists of buttons.
 
@@ -90,11 +90,11 @@ Create a ReplyKeyboardMarkup from a list of lists of buttons.
 
 A ReplyKeyboardMarkup.
 
-### *function* `kurimod.kbtn`
+### *function* `Kurimod.kbtn`
 
 alias of `KeyboardButton`
 
-### *function* `kurimod.ntb(button)`
+### *function* `Kurimod.ntb(button)`
 
 Deserialize an InlineKeyboardButton to btn() format.
 

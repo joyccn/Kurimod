@@ -2,9 +2,9 @@
 title: Identifier
 ---
 
-## *class* kurimod.types.Identifier
+## *class* Kurimod.types.Identifier
 
-The `kurimod.types.Identifier` class is a dataclass that serves as a utility for matching listeners to the data of updates.
+The `Kurimod.types.Identifier` class is a dataclass that serves as a utility for matching listeners to the data of updates.
 
 ### *Constructor parameters*
 
@@ -25,7 +25,7 @@ Compares the `Identifier` with another `Identifier` instance to determine if the
 
 Parameter | Type | Description
 --- | --- | ---
-`other` | `kurimod.types.Identifier` | The `Identifier` to compare against.
+`other` | `Kurimod.types.Identifier` | The `Identifier` to compare against.
 
 #### Returns:
 `True` if the two `Identifier` instances match, meaning that for each property in `other`,

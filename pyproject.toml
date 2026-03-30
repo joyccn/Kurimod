@@ -1,9 +1,9 @@
 [project]
-name = "kurimod"
-version = "3.3.0"
+name = "Kurimod"
+version = "3.4.0"
 description = "A monkeypatcher add-on for Kurigram that does conversation handling"
 authors = [
-    { name = "Arthur", email = "ohmyarthurr@gmail.com" }
+    { name = "JoyC", email = "joyc.vndm@gmail.com" }
 ]
 dependencies = [
     "kurigram>=2.2.19"
@@ -12,10 +12,10 @@ readme = "README.md"
 requires-python = ">= 3.11"
 
 [project.urls]
-Homepage = "https://github.com/ohmyarthur/kurimod"
-Repository = "https://github.com/ohmyarthur/kurimod"
-Documentation = "https://ohmyarthur.github.io/kurimod"
-"Bug Tracker" = "https://github.com/ohmyarthur/kurimod/issues"
+Homepage = "https://github.com/joyccn/Kurimod"
+Repository = "https://github.com/joyccn/Kurimod"
+Documentation = "https://joyccn.github.io/Kurimod"
+"Bug Tracker" = "https://github.com/joyccn/Kurimod/issues"
 
 [build-system]
 requires = ["hatchling"]

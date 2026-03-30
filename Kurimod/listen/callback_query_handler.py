@@ -25,7 +25,7 @@ class CallbackQueryHandler(
 
     @should_patch()
     def compose_data_identifier(self, query: CallbackQuery):
-        cache = getattr(query, "_kurimod_data_cache", None)
+        cache = getattr(query, "_Kurimod_data_cache", None)
         if cache is not None:
             return cache
 
@@ -50,14 +50,14 @@ class CallbackQueryHandler(
             from_user_id=[from_user_id, from_user_username],
             inline_message_id=query.inline_message_id,
         )
-        setattr(query, "_kurimod_data_cache", result)
+        setattr(query, "_Kurimod_data_cache", result)
         return result
 
     @should_patch()
     async def check_if_has_matching_listener(
         self, client: Client, query: CallbackQuery
     ) -> Tuple[bool, Listener]:
-        cache = getattr(query, "_kurimod_listener_cache", None)
+        cache = getattr(query, "_Kurimod_listener_cache", None)
         if cache is not None:
             return cache
 
@@ -83,7 +83,7 @@ class CallbackQueryHandler(
                 listener_does_match = True
 
         result = (listener_does_match, listener)
-        setattr(query, "_kurimod_listener_cache", result)
+        setattr(query, "_Kurimod_listener_cache", result)
         return result
 
     @should_patch()

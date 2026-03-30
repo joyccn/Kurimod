@@ -33,7 +33,7 @@ except ListenerTimeout:
 ## Full handler example, getting user's name and age with bound method Chat.ask
 
 ```python
-from kurimod import Client, Message
+from Kurimod import Client, Message
 from pyrogram import filters
 
 
@@ -50,10 +50,10 @@ async def on_form(client: Client, message: Message):
 ## Easier inline keyboard creation
 
 ```python
-from kurimod.helpers import ikb
+from Kurimod.helpers import ikb
 
 keyboard = ikb([
     [('Button 1', 'callback_data_1'), ('Button 2', 'callback_data_2')],
-    [('Another button', 't.me/kurimodchat', 'url')]
+    [('Another button', 't.me/Kurimodchat', 'url')]
 ])
 ```

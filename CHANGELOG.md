@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to kurimod will be documented in this file.
+All notable changes to Kurimod will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -30,4 +30,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PyPI references from documentation (now GitHub-only distribution)
 
 ### Note
-This is the original Pyromod version that kurimod is based on.
+This is the original Pyromod version that Kurimod is based on.

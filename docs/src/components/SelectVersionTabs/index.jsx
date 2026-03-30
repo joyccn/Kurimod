@@ -18,8 +18,8 @@ export const SelectVersionTabs = () => {
 
     return (
         <div role="tablist" className="tabs tabs-boxed">
-            <a role="tab" className={genClassName(0)} onClick={genOnClick(0)}>Without kurimod</a>
-            <a role="tab" className={genClassName(1)} onClick={genOnClick(1)}>With kurimod</a>
+            <a role="tab" className={genClassName(0)} onClick={genOnClick(0)}>Without Kurimod</a>
+            <a role="tab" className={genClassName(1)} onClick={genOnClick(1)}>With Kurimod</a>
         </div>
     );
 }

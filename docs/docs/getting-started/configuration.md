@@ -3,16 +3,16 @@ title: Configuration
 sidebar_position: 4
 ---
 
-kurimod offers various configuration options to customize its behavior according to your specific needs. This guide will walk you through the process of configuring kurimod using the `kurimod.config` object.
+Kurimod offers various configuration options to customize its behavior according to your specific needs. This guide will walk you through the process of configuring Kurimod using the `Kurimod.config` object.
 
-This is completely optional though. You can use kurimod as normal without configuring it.
+This is completely optional though. You can use Kurimod as normal without configuring it.
 
 ### Import the Configuration Object
 
-Before you can start configuring kurimod, you need to import the `config` object:
+Before you can start configuring Kurimod, you need to import the `config` object:
 
 ```python
-from kurimod.config import config
+from Kurimod.config import config
 ```
 
 ### Available Configuration Options
@@ -41,7 +41,7 @@ config.stopped_handler = my_custom_stopped_handler
 
 #### 3. Exception Handling
 
-The `throw_exceptions` attribute is a boolean flag that determines whether kurimod should raise exceptions for certain events. You can set it to `True` or `False` based on your preferences.
+The `throw_exceptions` attribute is a boolean flag that determines whether Kurimod should raise exceptions for certain events. You can set it to `True` or `False` based on your preferences.
 
 Example:
 

@@ -5,14 +5,14 @@ sidebar_position: 6
 
 ## Advanced Examples
 
-This section provides more advanced examples and use cases for kurimod.
+This section provides more advanced examples and use cases for Kurimod.
 
 ### Multi-Step Form with Validation
 
 Create a multi-step form with input validation:
 
 ```python
-from kurimod import Client, Message
+from Kurimod import Client, Message
 from pyrogram import filters
 import re
 
@@ -74,9 +74,9 @@ async def register_handler(client: Client, message: Message):
 Create an interactive menu with pagination:
 
 ```python
-from kurimod import Client, Message
-from kurimod.helpers import ikb, btn
-from kurimod.nav import Pagination
+from Kurimod import Client, Message
+from Kurimod.helpers import ikb, btn
+from Kurimod.nav import Pagination
 
 client = Client("my_bot")
 
@@ -125,8 +125,8 @@ async def menu_handler(client: Client, message: Message):
 Handle timeouts gracefully:
 
 ```python
-from kurimod import Client, Message
-from kurimod.exceptions import ListenerTimeout
+from Kurimod import Client, Message
+from Kurimod.exceptions import ListenerTimeout
 
 client = Client("my_bot")
 
@@ -173,7 +173,7 @@ async def quiz_handler(client: Client, message: Message):
 Handle multiple users simultaneously:
 
 ```python
-from kurimod import Client, Message
+from Kurimod import Client, Message
 from pyrogram import filters
 import asyncio
 
@@ -217,8 +217,8 @@ async def chat_handler(client: Client, message: Message):
 Create dynamic keyboards based on previous responses:
 
 ```python
-from kurimod import Client, Message
-from kurimod.helpers import ikb, btn
+from Kurimod import Client, Message
+from Kurimod.helpers import ikb, btn
 
 client = Client("my_bot")
 
@@ -297,7 +297,7 @@ async def order_handler(client: Client, message: Message):
 Handle file uploads with progress indication:
 
 ```python
-from kurimod import Client, Message
+from Kurimod import Client, Message
 from pyrogram import filters
 
 client = Client("my_bot")
@@ -335,7 +335,7 @@ async def upload_handler(client: Client, message: Message):
 Create a user profile system:
 
 ```python
-from kurimod import Client, Message
+from Kurimod import Client, Message
 from pyrogram import filters
 import json
 

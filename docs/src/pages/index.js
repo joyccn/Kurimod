@@ -3,8 +3,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import Link from '@docusaurus/Link';
-import { kurimodChatSimulator } from "../components/KurimodChatSimulator";
-import { kurimodCodeBox } from "../components/KurimodCodeBox";
+import { KurimodChatSimulator } from "../components/KurimodChatSimulator";
+import { KurimodCodeBox } from "../components/KurimodCodeBox";
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext();
@@ -92,8 +92,8 @@ export default function Home() {
                     <div className="w-full lg:w-1/2 relative">
                         <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full -z-10"></div>
                         <div className="flex flex-col-reverse md:flex-row gap-4 items-center justify-center">
-                            <kurimodChatSimulator />
-                            <kurimodCodeBox />
+                            <KurimodChatSimulator />
+                            <KurimodCodeBox />
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,9 @@
 ---
 title: ListenerTypes
 ---
-## *enum* kurimod.types.ListenerTypes
+## *enum* Kurimod.types.ListenerTypes
 
-The `kurimod.types.ListenerTypes` enum defines the various types of listeners that you can use in kurimod.
+The `Kurimod.types.ListenerTypes` enum defines the various types of listeners that you can use in Kurimod.
 
 ### Member Values:
 

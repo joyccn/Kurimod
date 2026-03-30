@@ -3,44 +3,44 @@ title: Introduction
 sidebar_position: 0
 ---
 
-# *package* kurimod
+# *package* Kurimod
 
-This is a concise list of the main modules, objects, helpers, and decorators provided by kurimod.
+This is a concise list of the main modules, objects, helpers, and decorators provided by Kurimod.
 
 - Modules:
-    - kurimod.config
-    - kurimod.helpers
-    - kurimod.listen
-    - kurimod.nav
-    - kurimod.utils
-    - kurimod.exceptions
-    - kurimod.types
+    - Kurimod.config
+    - Kurimod.helpers
+    - Kurimod.listen
+    - Kurimod.nav
+    - Kurimod.utils
+    - Kurimod.exceptions
+    - Kurimod.types
 
 - Objects:
-    - kurimod.config.config
-    - kurimod.listen.Client
-    - kurimod.listen.Message
-    - kurimod.listen.Chat
-    - kurimod.listen.User
-    - kurimod.nav.Pagination
-    - kurimod.types.Identifier
-    - kurimod.types.ListenerTypes
-    - kurimod.types.Listener
-    - kurimod.exceptions.ListenerTimeout
-    - kurimod.exceptions.ListenerStopped
-    - kurimod.utils.patch_into
-    - kurimod.utils.should_patch
+    - Kurimod.config.config
+    - Kurimod.listen.Client
+    - Kurimod.listen.Message
+    - Kurimod.listen.Chat
+    - Kurimod.listen.User
+    - Kurimod.nav.Pagination
+    - Kurimod.types.Identifier
+    - Kurimod.types.ListenerTypes
+    - Kurimod.types.Listener
+    - Kurimod.exceptions.ListenerTimeout
+    - Kurimod.exceptions.ListenerStopped
+    - Kurimod.utils.patch_into
+    - Kurimod.utils.should_patch
 
 - Helpers:
-    - kurimod.helpers.ikb
-    - kurimod.helpers.bki
-    - kurimod.helpers.ntb
-    - kurimod.helpers.btn
-    - kurimod.helpers.kb
-    - kurimod.helpers.kbtn
-    - kurimod.helpers.array_chunk
-    - kurimod.helpers.force_reply
+    - Kurimod.helpers.ikb
+    - Kurimod.helpers.bki
+    - Kurimod.helpers.ntb
+    - Kurimod.helpers.btn
+    - Kurimod.helpers.kb
+    - Kurimod.helpers.kbtn
+    - Kurimod.helpers.array_chunk
+    - Kurimod.helpers.force_reply
 
 - Decorators:
-    - kurimod.utils.patch_into(target_class)
-    - kurimod.utils.should_patch(func)
+    - Kurimod.utils.patch_into(target_class)
+    - Kurimod.utils.should_patch(func)

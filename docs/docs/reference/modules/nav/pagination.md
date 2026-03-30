@@ -2,9 +2,9 @@
 title: Pagination
 ---
 
-## *class* kurimod.nav.Pagination
+## *class* Kurimod.nav.Pagination
 
-The `kurimod.nav.Pagination` class provides a utility for creating paginated interfaces with customizable pagination
+The `Kurimod.nav.Pagination` class provides a utility for creating paginated interfaces with customizable pagination
 controls. It is designed to handle a list of objects and display them in a paginated manner.
 
 ### *Constructor parameters*

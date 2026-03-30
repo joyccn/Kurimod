@@ -2,7 +2,7 @@
 title: Client
 ---
 
-## *class* `kurimod.listen.Client`
+## *class* `Kurimod.listen.Client`
 
 Bases: `pyrogram.Client`
 
@@ -17,7 +17,7 @@ Listen for a message, callback query, etc.
 | Parameter               | Type                                                                                                      | Description                                                                      
 |-------------------------|-----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | `filters`               | `pyrogram.filters.Filter` *or* `None`                                                                     | A filter to check the incoming message against.                                  
-| `listener_type`         | `kurimod.types.ListenerTypes` | The type of listener to listen for.                                              
+| `listener_type`         | `Kurimod.types.ListenerTypes` | The type of listener to listen for.                                              
 | `timeout`               | `int` *or* `None`                                                                                         | The maximum amount of time to wait for a message.                                
 | `unallowed_click_alert` | `bool`                                                                                                    | Whether to alert the user if they click a button that doesn’t match the filters. 
 | `chat_id`               | `int` *or* `None`                                                                                         | The chat ID to listen for.                                                       
@@ -29,8 +29,8 @@ Listen for a message, callback query, etc.
 
 | Exception                            | Description                  
 |--------------------------------------|------------------------------|
-| `kurimod.exceptions.ListenerStopped` | If the listener was stopped. 
-| `kurimod.exceptions.ListenerTimeout` | If the listener timed out.   
+| `Kurimod.exceptions.ListenerStopped` | If the listener was stopped. 
+| `Kurimod.exceptions.ListenerTimeout` | If the listener timed out.   
 
 #### Returns
 
@@ -52,7 +52,7 @@ Send a message and calls `Client.listen` to wait for a response.
 | `chat_id`               | `int`                                                                                                     | The chat ID to send the message to. It will also be used to listen for a response.
 | `text`                  | `str`                                                                                                     | The text of the message to send.
 | `filters`               | `pyrogram.filters.Filter` *or* `None`                                                                     | A filter to check the incoming message against.
-| `listener_type`         | `kurimod.types.ListenerTypes` | The type of listener to listen for.
+| `listener_type`         | `Kurimod.types.ListenerTypes` | The type of listener to listen for.
 | `timeout`               | `int` *or* `None`                                                                                         | The maximum amount of time to wait for a message.
 | `unallowed_click_alert` | `bool`                                                                                                    | Whether to alert the user if they click a button that doesn’t match the filters.
 | `user_id`               | `int` *or* `None`                                                                                         | The user ID to listen for.
@@ -78,8 +78,8 @@ Get a listener that matches the given pattern.
 
 | Parameter     | Type                                                                                                      | Description
 |---------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| `pattern`     | `kurimod.types.Identifier`           |
-| `listener_type` | `kurimod.types.ListenerTypes` |
+| `pattern`     | `Kurimod.types.Identifier`           |
+| `listener_type` | `Kurimod.types.ListenerTypes` |
 
 #### Returns
 
@@ -96,8 +96,8 @@ Get all listeners that match the given pattern.
 
 | Parameter     | Type                                                                                                      | Description
 |---------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| `pattern`     | `kurimod.types.Identifier`           |
-| `listener_type` | `kurimod.types.ListenerTypes` |
+| `pattern`     | `Kurimod.types.Identifier`           |
+| `listener_type` | `Kurimod.types.ListenerTypes` |
 
 #### Returns
 
@@ -113,7 +113,7 @@ Remove a listener.
 
 | Parameter | Type                                                                                                      | Description
 |-----------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| `listener` | `kurimod.types.Listener`                 |
+| `listener` | `Kurimod.types.Listener`                 |
 
 #### Returns
 
@@ -129,7 +129,7 @@ Stop listening for a message, callback query, etc.
 
 | Parameter           | Type                          | Description                                  |
 |---------------------|-------------------------------|----------------------------------------------|
-| `listener_type`     | `kurimod.types.ListenerTypes` |                                              |
+| `listener_type`     | `Kurimod.types.ListenerTypes` |                                              |
 | `chat_id`           | `int` *or* `None`             | The chat ID to stop listening for.           |
 | `user_id`           | `int` *or* `None`             | The user ID to stop listening for.           |
 | `message_id`        | `int` *or* `None`             | The message ID to stop listening for.        |
