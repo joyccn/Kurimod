@@ -1,137 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 :root {
-  --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #2563eb;
-  --ifm-color-primary-darker: #1d4ed8;
-  --ifm-color-primary-darkest: #1e40af;
-  --ifm-color-primary-light: #60a5fa;
-  --ifm-color-primary-lighter: #93c5fd;
-  --ifm-color-primary-lightest: #dbeafe;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* ChatGPT / Clean Aesthetic */
   --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  --ifm-background-color: #ffffff;
-  --ifm-background-surface-color: #f8fafc;
+  
+  /* Primary Colors - Accent: #c15f3c */
+  --ifm-color-primary: #c15f3c;
+  --ifm-color-primary-dark: #ad5536;
+  --ifm-color-primary-darker: #a35033;
+  --ifm-color-primary-darkest: #87422a;
+  --ifm-color-primary-light: #c76f4f;
+  --ifm-color-primary-lighter: #cb7759;
+  --ifm-color-primary-lightest: #d78f76;
+  
+  /* Background Colors - Clean Light Theme */
+  --ifm-background-color: #f4f3ee;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-navbar-background-color: rgba(244, 243, 238, 0.85);
+  
+  /* Neutrals */
+  --ifm-color-secondary: #b1ada1;
+  
+  /* Text */
+  --ifm-heading-color: #080808;
+  --ifm-font-color-base: #080808;
+
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
+
+  /* Code block adjustments */
+  --prism-background-color: #ffffff;
 }
 
 /* Premium Dark Mode */
 [data-theme='dark'] {
-  --ifm-color-primary: #60a5fa;
-  --ifm-color-primary-dark: #3b82f6;
-  --ifm-color-primary-darker: #2563eb;
-  --ifm-color-primary-darkest: #1d4ed8;
-  --ifm-color-primary-light: #93c5fd;
-  --ifm-color-primary-lighter: #bfdbfe;
-  --ifm-color-primary-lightest: #dbeafe;
-  --ifm-background-color: #0B0E14;
-  /* Deep, rich dark blue/black */
-  --ifm-background-surface-color: #151A23;
-  /* Slightly lighter for cards */
-  --ifm-navbar-background-color: rgba(11, 14, 20, 0.85);
+  --ifm-background-color: #080808;
+  --ifm-background-surface-color: #121212;
+  --ifm-navbar-background-color: rgba(8, 8, 8, 0.85);
+  
+  --ifm-heading-color: #ffffff;
+  --ifm-font-color-base: #e5e5e5;
+  
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.05);
+  --prism-background-color: #121212;
 }
 
-/* Typography & Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply tracking-tight font-bold text-slate-900 dark:text-slate-100;
-}
-
-.markdown h1 {
-  @apply text-5xl mb-8;
-  background: linear-gradient(to right, var(--ifm-color-primary-light), var(--ifm-color-primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Navbar */
+/* Global resets for ultra clean look */
 .navbar {
-  @apply border-b border-transparent backdrop-blur-md sticky top-0 z-50 transition-all duration-300;
-  background-color: var(--ifm-navbar-background-color);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  @apply sticky top-0 z-50 transition-all duration-300;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(177, 173, 161, 0.2);
+}
+
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar__title {
-  @apply font-bold text-xl tracking-wide;
+  @apply font-bold tracking-tight text-xl;
 }
 
-/* Buttons */
+h1, h2, h3, h4, h5, h6 {
+  @apply tracking-tight font-bold;
+}
+
+.markdown h1 {
+  @apply tracking-tighter;
+}
+
+/* Core Buttons */
 .button {
-  @apply font-semibold rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0;
+  @apply font-semibold rounded-full px-6 py-2.5 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer;
 }
 
 .button--primary {
-  @apply bg-blue-600 hover:bg-blue-500 border-none text-white shadow-blue-500/20;
+  @apply bg-[#c15f3c] hover:bg-[#a35033] border-none text-white;
 }
 
 .button--secondary {
-  @apply bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-300 dark:hover:bg-slate-700 border-none;
+  @apply bg-transparent border border-[#b1ada1] text-[#080808] hover:bg-[#b1ada1] hover:text-white;
+}
+
+[data-theme='dark'] .button--secondary {
+  @apply border-[#b1ada1] text-[#ffffff] hover:bg-[#b1ada1] hover:text-white;
 }
 
 /* Cards & Containers */
 .card {
-  @apply rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151A23] shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300 hover:border-blue-500/50 dark:hover:border-blue-500/50;
+  @apply rounded-[2rem] border border-[#b1ada1]/30 bg-white shadow-sm transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1;
+}
+
+[data-theme='dark'] .card {
+  @apply bg-[#121212] border-white/10 hover:shadow-white/5;
 }
 
 /* Hero Section Styles */
 .hero-banner {
-  @apply relative overflow-hidden py-24 px-6 text-center;
-  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  @apply relative overflow-hidden py-32 px-6 text-center bg-transparent mt-12;
 }
 
 .hero-title {
-  @apply text-6xl md:text-7xl font-extrabold tracking-tight mb-6;
-  background: linear-gradient(135deg, #fff 30%, #60a5fa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @apply text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 text-[#080808];
 }
 
-[data-theme='light'] .hero-title {
-  background: linear-gradient(135deg, #1e293b 30%, #3b82f6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+[data-theme='dark'] .hero-title {
+  @apply text-white;
 }
 
 .hero-subtitle {
-  @apply text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed;
+  @apply text-xl md:text-2xl text-[#b1ada1] max-w-2xl mx-auto mb-10 leading-relaxed font-medium tracking-tight;
 }
 
 /* Feature Cards on Homepage */
 .feature-card {
-  @apply p-8 rounded-2xl bg-white dark:bg-[#151A23] border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1;
+  @apply p-8 rounded-[2rem] bg-white border border-[#b1ada1]/30 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 text-left relative overflow-hidden;
+}
+
+[data-theme='dark'] .feature-card {
+  @apply bg-[#121212] border-white/10 hover:shadow-white/5;
 }
 
 .feature-icon {
-  @apply w-12 h-12 mb-4 rounded-xl flex items-center justify-center bg-blue-500/10 text-blue-500 dark:text-blue-400 text-2xl;
+  @apply w-12 h-12 mb-6 flex items-center justify-center text-3xl opacity-90;
 }
 
-/* Code Blocks */
+/* Code Blocks Overlay Fix */
 .theme-code-block {
-  @apply rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800;
+  @apply rounded-2xl overflow-hidden shadow-sm border border-[#b1ada1]/30;
 }
 
-/* Scrollbar */
+[data-theme='dark'] .theme-code-block {
+  @apply border-white/10;
+}
+
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  @apply bg-transparent;
+  background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 dark:bg-slate-700 rounded-full hover:bg-slate-400 dark:hover:bg-slate-600;
+  @apply rounded-full bg-[#b1ada1]/50 hover:bg-[#b1ada1];
 }
 
-/* Search Modal Overrides */
-:root {
-  --docsearch-primary-color: var(--ifm-color-primary);
-  --docsearch-searchbox-shadow: inset 0 0 0 2px var(--ifm-color-primary);
-  --docsearch-hit-shadow: none;
+/* Loader Styles */
+.kurimod-intro-loader {
+  @apply fixed inset-0 z-[99999] flex flex-col items-center justify-center;
+  background-color: var(--ifm-background-color);
+}
+
+.kurimod-loader-spinner {
+  @apply w-12 h-12 rounded-full border-4 border-[#b1ada1]/20 border-t-[#c15f3c] animate-spin mb-4;
+}
+
+.kurimod-loader-text {
+  @apply text-lg font-bold tracking-[0.2em] text-[#b1ada1];
+}
+
+/* Docusaurus doc page specific overrides for cleaner typography */
+article header h1 {
+  @apply text-4xl font-extrabold tracking-tighter text-[#080808] dark:text-white mb-6;
 }

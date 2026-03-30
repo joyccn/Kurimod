@@ -23,6 +23,7 @@
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "daisyui": "^5.5.14",
+    "framer-motion": "^12.38.0",
     "postcss": "^8.5.1",
     "react": "^19.2.3",
     "react-code-blocks": "^0.1.6",
