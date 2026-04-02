@@ -123,6 +123,10 @@ class Client(pyrogram.client.Client):
         self, data: Identifier, listener_type: ListenerTypes
     ) -> Optional[Listener]:
         matching = []
+
+        if not hasattr(self, "listeners") or self.listeners is None:
+            self.listeners = {listener_type: [] for listener_type in ListenerTypes}
+
         for listener in list(self.listeners[listener_type]):
             if listener.identifier.matches(data):
                 matching.append(listener)
@@ -132,9 +136,14 @@ class Client(pyrogram.client.Client):
 
         return max(matching, key=count_populated_attributes, default=None)
 
+    @should_patch()
     def get_listener_matching_with_identifier_pattern(
         self, pattern: Identifier, listener_type: ListenerTypes
     ) -> Optional[Listener]:
+        # Check if listeners is already initialized locally, and if not, initialize it. This is a safety measure.
+        if not hasattr(self, "listeners") or self.listeners is None:
+            self.listeners = {listener_type: [] for listener_type in ListenerTypes}
+
         matching = []
         for listener in list(self.listeners[listener_type]):
             if pattern.matches(listener.identifier):
