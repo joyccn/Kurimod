@@ -23,9 +23,15 @@ class Client(pyrogram.client.Client):
     old__init__: Callable
 
     @should_patch()
+    def _Kurimod_ensure_initialized(self):
+        if not hasattr(self, "listeners") or self.listeners is None:
+            self.listeners = {listener_type: [] for listener_type in ListenerTypes}
+        if not hasattr(self, "_listeners_lock") or self._listeners_lock is None:
+            self._listeners_lock = asyncio.Lock()
+
+    @should_patch()
     def __init__(self, *args, **kwargs):
-        self.listeners = {listener_type: [] for listener_type in ListenerTypes}
-        self._listeners_lock = asyncio.Lock()
+        self._Kurimod_ensure_initialized()
         self.old__init__(*args, **kwargs)
 
     @should_patch()
@@ -40,6 +46,7 @@ class Client(pyrogram.client.Client):
         message_id: Union[int, List[int]] = None,
         inline_message_id: Union[str, List[str]] = None,
     ):
+        self._Kurimod_ensure_initialized()
         pattern = Identifier(
             from_user_id=user_id,
             chat_id=chat_id,
@@ -113,6 +120,7 @@ class Client(pyrogram.client.Client):
 
     @should_patch()
     def remove_listener(self, listener: Listener):
+        self._Kurimod_ensure_initialized()
         try:
             self.listeners[listener.listener_type].remove(listener)
         except ValueError:
@@ -122,10 +130,8 @@ class Client(pyrogram.client.Client):
     def get_listener_matching_with_data(
         self, data: Identifier, listener_type: ListenerTypes
     ) -> Optional[Listener]:
+        self._Kurimod_ensure_initialized()
         matching = []
-
-        if not hasattr(self, "listeners") or self.listeners is None:
-            self.listeners = {listener_type: [] for listener_type in ListenerTypes}
 
         for listener in list(self.listeners[listener_type]):
             if listener.identifier.matches(data):
@@ -140,11 +146,9 @@ class Client(pyrogram.client.Client):
     def get_listener_matching_with_identifier_pattern(
         self, pattern: Identifier, listener_type: ListenerTypes
     ) -> Optional[Listener]:
-        # Check if listeners is already initialized locally, and if not, initialize it. This is a safety measure.
-        if not hasattr(self, "listeners") or self.listeners is None:
-            self.listeners = {listener_type: [] for listener_type in ListenerTypes}
-
+        self._Kurimod_ensure_initialized()
         matching = []
+
         for listener in list(self.listeners[listener_type]):
             if pattern.matches(listener.identifier):
                 matching.append(listener)
@@ -160,6 +164,7 @@ class Client(pyrogram.client.Client):
         data: Identifier,
         listener_type: ListenerTypes,
     ) -> List[Listener]:
+        self._Kurimod_ensure_initialized()
         listeners = []
         for listener in list(self.listeners[listener_type]):
             if listener.identifier.matches(data):
@@ -172,6 +177,7 @@ class Client(pyrogram.client.Client):
         pattern: Identifier,
         listener_type: ListenerTypes,
     ) -> List[Listener]:
+        self._Kurimod_ensure_initialized()
         listeners = []
         for listener in list(self.listeners[listener_type]):
             if pattern.matches(listener.identifier):
@@ -243,4 +249,5 @@ class Client(pyrogram.client.Client):
             listener_type=listener_type,
         )
 
+        self._Kurimod_ensure_initialized()
         self.listeners[listener_type].append(listener)
