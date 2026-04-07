@@ -5,26 +5,28 @@ requires-python = ">=3.11"
 [[package]]
 name = "kurigram"
 version = "2.2.19"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/KurimuzonAkuma/kurigram#45eda84b9ecaedacf453822892a281193ea003a0" }
 dependencies = [
     { name = "pyaes" },
-    { name = "pysocks" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/aa/3c/0c5469b66ea5ad887d7b877b08113726e6d67ef622442c8dd7adbcf9e352/kurigram-2.2.19.tar.gz", hash = "sha256:6d86a870834527e91c6308f8307796a985a437a39e8112e3bc7a649c6d1f7daa", size = 557685, upload-time = "2026-02-20T09:36:08.844Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/8a/00/7b4354395f7adcbf862af968a989f45f690542c4f0b458dc4cc7c10d2a40/kurigram-2.2.19-py3-none-any.whl", hash = "sha256:fa255cfc1aaa4b9be9ed3120af612a460a3e1c78d872b6090717ea77ca31dbf8", size = 5494166, upload-time = "2026-02-20T09:36:07.095Z" },
+    { name = "python-socks" },
 ]
 
 [[package]]
-name = "Kurimod"
-version = "3.2.0"
+name = "kurimod"
+version = "3.4.0"
 source = { editable = "." }
 dependencies = [
     { name = "kurigram" },
+    { name = "pyaes" },
+    { name = "python-socks" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "kurigram", specifier = ">=2.2.19" }]
+requires-dist = [
+    { name = "kurigram", git = "https://github.com/KurimuzonAkuma/kurigram" },
+    { name = "pyaes", specifier = ">=1.6.1" },
+    { name = "python-socks", specifier = ">=2.8.1" },
+]
 
 [[package]]
 name = "pyaes"
@@ -33,10 +35,10 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/44/66/2c17bae31c906613795711fc78045c285048168919ace2220daa372c7d72/pyaes-1.6.1.tar.gz", hash = "sha256:02c1b1405c38d3c370b085fb952dd8bea3fadcee6411ad99f312cc129c536d8f", size = 28536, upload-time = "2017-09-20T21:17:54.23Z" }
 
 [[package]]
-name = "pysocks"
-version = "1.7.1"
+name = "python-socks"
+version = "2.8.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/bd/11/293dd436aea955d45fc4e8a35b6ae7270f5b8e00b53cf6c024c83b657a11/PySocks-1.7.1.tar.gz", hash = "sha256:3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0", size = 284429, upload-time = "2019-09-20T02:07:35.714Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/36/0b/cd77011c1bc01b76404f7aba07fca18aca02a19c7626e329b40201217624/python_socks-2.8.1.tar.gz", hash = "sha256:698daa9616d46dddaffe65b87db222f2902177a2d2b2c0b9a9361df607ab3687", size = 38909, upload-time = "2026-02-16T05:24:00.745Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8d/59/b4572118e098ac8e46e399a1dd0f2d85403ce8bbaad9ec79373ed6badaf9/PySocks-1.7.1-py3-none-any.whl", hash = "sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5", size = 16725, upload-time = "2019-09-20T02:06:22.938Z" },
+    { url = "https://files.pythonhosted.org/packages/15/fe/9a58cb6eec633ff6afae150ca53c16f8cc8b65862ccb3d088051efdfceb7/python_socks-2.8.1-py3-none-any.whl", hash = "sha256:28232739c4988064e725cdbcd15be194743dd23f1c910f784163365b9d7be035", size = 55087, upload-time = "2026-02-16T05:23:59.147Z" },
 ]

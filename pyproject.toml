@@ -6,7 +6,9 @@ authors = [
     { name = "JoyC", email = "joyc.vndm@gmail.com" }
 ]
 dependencies = [
-    "kurigram>=2.2.19"
+    "kurigram",
+    "pyaes>=1.6.1",
+    "python-socks>=2.8.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.11"
@@ -26,3 +28,6 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["Kurimod"]
+
+[tool.uv.sources]
+kurigram = { git = "https://github.com/KurimuzonAkuma/kurigram" }
